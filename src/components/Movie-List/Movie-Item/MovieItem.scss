@@ -1,0 +1,87 @@
+@use '../../../styles/variables' as vars;
+@use '../../../styles/mixins' as mxn;
+
+.movie-item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid vars.$color-border;
+    margin: 0 1rem 1rem;
+}
+
+.movie-title {
+    .add-to-fav {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+}
+
+.image {
+    margin-bottom: 2rem;
+}
+
+.description {
+    margin-bottom: 2rem;
+    &-text {
+        font-size: 1rem;
+        height: 5.5rem;
+        width: 90%;
+        margin: 0 auto 1rem;
+        overflow: hidden;
+        text-align: left;
+        & > p {
+            margin-top: 0;
+        }
+        &.show-more {
+            height: auto;
+        }
+    }
+
+    .btn--show-more {
+    }
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+@include mxn.for-desktop-up {
+    .movie-item {
+        display: grid;
+        grid-template-columns: [first] 25% [second] 25% [third] 25% [fourth] 25% [end];
+        grid-template-rows: [row1] 100px [row1-end] 33% [second-line] auto [last-line];
+
+        .movie-title {
+            grid-column-start: first;
+            grid-column-end: five;
+            grid-row-start: row1;
+            grid-row-end: row1-end;
+        }
+
+        .image {
+            grid-column-start: 1;
+            grid-column-end: span 1;
+            grid-row-start: 2;
+            grid-row-end: span 2;
+            margin-bottom: 3rem;
+        }
+
+        .description {
+            grid-column-start: second;
+            grid-column-end: span 2;
+            grid-row-start: 2;
+            grid-row-end: span last-line;
+        }
+
+        .details {
+            grid-column-start: 4;
+            grid-column-end: span 2;
+            grid-row-start: 2;
+            grid-row-end: span 2;
+        }
+    }
+}

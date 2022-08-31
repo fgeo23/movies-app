@@ -1,0 +1,34 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mxn;
+.Main {
+    align-items: center;
+    background-color: vars.$color-dark;
+    color: white;
+    display: flex;
+    font-size: calc(10px + 2vmin);
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+.Main-Form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Main-Search {
+    font-size: 1.2rem;
+    border-radius: 30px;
+    border: 2px solid vars.$color-border;
+    margin: 1rem;
+    padding: 1rem;
+    width: 80vw;
+}
+
+@include mxn.for-desktop-up {
+    .Main-Search {
+        width: 700px;
+    }
+}
