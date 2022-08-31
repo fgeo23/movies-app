@@ -36,11 +36,16 @@ function MovieItem(props) {
                     props.toggleFavorite(props.movie.id);
                     return;
                 }}>
-                    {isFavorite ? <AiFillStar /> : <AiOutlineStar />}
+                    {isFavorite ? <AiFillStar color='gold' /> : <AiOutlineStar />}
                 </div>
             </div>
             <div className="image">
+            {
+                props.movie.image ?
                 <img src={props.movie.image.medium} alt="" />
+                :
+                <img src="https://via.placeholder.com/210x295?text=No+Movie+Poster" alt="" />
+            }
             </div>
             <div className="description">
                 <div className={`description-text ${showMore ? "show-more" : ""}`} dangerouslySetInnerHTML={{ __html: safeHTML }} ></div>

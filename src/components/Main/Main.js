@@ -5,6 +5,18 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
+/***
+ * TODO
+ * Move favorites functionality into context API
+ * Add year of release filtering
+ * Add sorting
+ * Add a favicon
+ * Add a container for desktop
+ * Add some animations to loading movies, showing more, buttons, favorite
+ * Style genres
+ * Maybe add multiple genres selection
+ */
+
 function Main(props) {
     const [showFilters, updateFilterState] = useState(false);
     // Here should the results be processed by genre, sorted

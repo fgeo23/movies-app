@@ -7,8 +7,6 @@ function App() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
 
-
-
   function toggleFavorite(movieID) {
     let favorites = JSON.parse(localStorage.getItem('favorites'));
     if (!favorites) {
@@ -53,6 +51,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <img src="/public/logo192.png" alt='logo' />
       </header>
       <Main updateSearch={setQuery} results={results} toggleFavorite={toggleFavorite} checkIfFav={checkIfFav} />
     </div>
