@@ -28,8 +28,8 @@ function MovieItem(props) {
     }, [props, movieID]);
 
     return (
-        <div className="movie-item">
-            <div className="movie-title">
+        <div className="Movie-Item">
+            <div className="Movie-Title">
                 <h5>{props.movie.name}</h5>
                 <div className="add-to-fav" onClick={() => {
                     setFavorite(!isFavorite);
@@ -39,7 +39,7 @@ function MovieItem(props) {
                     {isFavorite ? <AiFillStar color='gold' /> : <AiOutlineStar />}
                 </div>
             </div>
-            <div className="image">
+            <div className="Movie-Image">
             {
                 props.movie.image ?
                 <img src={props.movie.image.medium} alt="" />
@@ -47,7 +47,7 @@ function MovieItem(props) {
                 <img src="https://via.placeholder.com/210x295?text=No+Movie+Poster" alt="" />
             }
             </div>
-            <div className="description">
+            <div className="Movie-Desc">
                 <div className={`description-text ${showMore ? "show-more" : ""}`} dangerouslySetInnerHTML={{ __html: safeHTML }} ></div>
                 {
                     safeHTML.length > 200 ?
@@ -57,7 +57,7 @@ function MovieItem(props) {
                         : ""
                 }
                 {props.movie.genres.length > 0 ?
-                    <div className="genres">
+                    <div className="Movie-Genres">
                         <b>Genres</b>
                         {props.movie.genres.map((genre, ndx) => {
                             return <div className="genre" key={ndx}>{genre}</div>
@@ -65,7 +65,7 @@ function MovieItem(props) {
                     </div>
                     : ''}
             </div>
-            <div className="details">
+            <div className="Movie-Details">
                 <div>Premiered: {props.movie.premiered}</div>
                 {props.movie.rating.average ? <div>Rating: {props.movie.rating.average} / 10</div> : ""}
             </div>

@@ -1,6 +1,8 @@
 import './App.scss';
+import { Routes, Route } from "react-router-dom";
 import Main from './components/Main/Main';
-
+import Favorites from './components/Favorites/Favorites';
+import Header from './components/Header/Header';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -50,10 +52,11 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src="/public/logo192.png" alt='logo' />
-      </header>
-      <Main updateSearch={setQuery} results={results} toggleFavorite={toggleFavorite} checkIfFav={checkIfFav} />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Main updateSearch={setQuery} results={results} toggleFavorite={toggleFavorite} checkIfFav={checkIfFav} />} />
+        <Route path="favorites" element={<Favorites />} />
+      </Routes>
     </div>
   );
 }

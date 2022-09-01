@@ -1,4 +1,6 @@
-.movie-list {
+@use '../../styles/mixins' as mxn;
+.Movie-List {
+    @include mxn.container;
     display: flex;
     flex-direction: column;
 }

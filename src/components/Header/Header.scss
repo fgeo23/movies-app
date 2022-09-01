@@ -1,0 +1,59 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mxn;
+
+.Header {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    min-height: 50px;
+}
+
+.Header-logo {
+    height: 10vmin;
+    position: relative;
+    pointer-events: none;
+}
+
+.NavBar {
+    display: flex;
+    height: 100%;
+    position: absolute;
+    right: 0;
+
+    &-Trigger {
+        border: none;
+        background-color: vars.$color-white;
+        width: 50px;
+    }
+
+    &-Links {
+        align-items: center;
+        background-color: vars.$color-white;
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        width: 0;
+        transition: width 0.5s;
+
+        &.show {
+            width: 170px;
+        }
+
+        > a {
+            padding: 1rem;
+            color: vars.$color-dark;
+            text-decoration: none;
+        }
+    }
+
+    @include mxn.for-desktop-up {
+        &-Trigger {
+            display: none;
+        }
+
+        &-Links {
+            width: auto;
+        }
+    }
+}

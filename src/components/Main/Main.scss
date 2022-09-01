@@ -1,14 +1,13 @@
 @use '../../styles/variables' as vars;
 @use '../../styles/mixins' as mxn;
+
 .Main {
     align-items: center;
     background-color: vars.$color-dark;
     color: white;
-    display: flex;
     font-size: calc(10px + 2vmin);
-    flex-direction: column;
     min-height: 100vh;
-    justify-content: center;
+    padding-top: 2rem;
 }
 
 .Main-Form {
@@ -25,6 +24,18 @@
     margin: 1rem;
     padding: 1rem;
     width: 80vw;
+}
+
+.Main-Filters-Genres {
+    font-size: 1.2rem;
+    display: flex;
+
+    .genre {
+        padding: 0 1rem;
+        &.selected {
+            color: #4285f4;
+        }
+    }
 }
 
 @include mxn.for-desktop-up {

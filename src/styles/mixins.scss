@@ -18,3 +18,9 @@
         @content;
     }
 }
+@mixin container {
+    @include for-desktop-up {
+        max-width: 1080px;
+        margin: 0 auto;
+    }
+}

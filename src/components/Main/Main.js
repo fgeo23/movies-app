@@ -10,10 +10,10 @@ import "react-datepicker/dist/react-datepicker.css";
  * Move favorites functionality into context API
  * Add year of release filtering
  * Add sorting
- * Add a favicon
- * Add a container for desktop
+ * Add a favicon - done
+ * Add a container for desktop - done
  * Add some animations to loading movies, showing more, buttons, favorite
- * Style genres
+ * Style genres - done
  * Maybe add multiple genres selection
  */
 
@@ -63,9 +63,11 @@ function Main(props) {
                     <button onClick={toggleFilters} className="btn">Filter</button>
                     {showFilters ?
                         <div className="Main-Filters">
+                            <h4>Genre</h4>
                             <div className="Main-Filters-Genres">
-                                <h4>Genre</h4>
-                                {genres.map((genre, ndx) => <div key={ndx} onClick={() => filterGenre(genre)}>{genre}</div>)}
+                                {genres.map((genre, ndx) => {
+                                    return <div className={`genre ${selectedGenre === genre ? 'selected' : ''}`} key={ndx} onClick={() => filterGenre(genre)}>{genre}</div>
+                                } )}
                             </div>
                             <div>
                                 <h4>Release Date</h4>
