@@ -29,10 +29,12 @@ function Favorites(props) {
     }, [favorites]);
     return (
         <div className="Favorites">
-            {
+            { results.length > 0 ?
                 results.map((result, index) => {
                     return <MovieItem key={index} movie={result} checkIfFav={props.checkIfFav} toggleFavorite={props.toggleFavorite} />;
                 })
+                :
+                "Please search for movies or TV shows and select your favorites to be displayed here"
             }
         </div>
     );
