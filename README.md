@@ -3,7 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Demo available here: https://filimongeorge.github.io/movies-app/
-Note: Click on Home when accessing the website to load the application. Routing breaks when using github pages.
+Note: Click on Home when accessing the website to load the application. For some reason, routing breaks when using github pages.
 Will fix this in a later deployment.
 
 ## Available Scripts
