@@ -13,13 +13,15 @@ function Favorites(props) {
 
         const fetchData = async () => {
             const data = [];
-            for (let fav of favorites) {
-                try {
-                    const response = await fetch(url + fav);
-                    const json = await response.json();
-                    data.push(json);
-                } catch (error) {
-                    console.log("error", error);
+            if(favorites.length > 0) {
+                for (let fav of favorites) {
+                    try {
+                        const response = await fetch(url + fav);
+                        const json = await response.json();
+                        data.push(json);
+                    } catch (error) {
+                        console.log("error", error);
+                    }
                 }
             }
             setResults(data);
