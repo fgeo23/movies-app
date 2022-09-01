@@ -26,16 +26,64 @@
     width: 80vw;
 }
 
-.Main-Filters-Genres {
+.Main-Submit, .Main-Filters-Button, .Main-Sorting-Button {
+    display: block;
+    margin: 0 auto 1rem;
     font-size: 1.2rem;
-    display: flex;
 
-    .genre {
-        padding: 0 1rem;
-        &.selected {
-            color: #4285f4;
-        }
+    &:hover {
+        border: 2px solid vars.$color-white;
     }
+}
+
+.Main-Filters {
+    h4 {
+        margin: 0.4rem;
+    }
+}
+
+.Main-Controls {
+    width: 100%;
+}
+.Main-Filters-Genres {
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.control {
+    background-color: vars.$color-blue;
+    color: vars.$color-white;
+    border: 2px solid vars.$color-blue;
+    border-radius: 30px;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    transition: background-color 0.3s ease-out;
+    &:hover {
+        border: 2px solid vars.$color-white;
+    }
+    &.selected {
+        color: vars.$color-blue;
+        background-color: vars.$color-dark;
+    }
+}
+
+.Main-Filters-DatePickers {
+    align-items: center;
+    display: flex;
+    font-size: 1rem;
+    & input {
+        padding: 0.5rem;
+    }
+}
+
+.Main-Sorting {
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 @include mxn.for-desktop-up {

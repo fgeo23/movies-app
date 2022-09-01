@@ -5,16 +5,19 @@ import { useState, useEffect } from 'react';
 
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
+// Renders the data for a show
 function MovieItem(props) {
     const [showMore, setShowMore] = useState(false);
     const [isFavorite, setFavorite] = useState(false);
 
+    // Sanitizing the HTML to prevent XSS
     const safeHTML = DOMPurify.sanitize(props.movie.summary, {
         ALLOWED_TAGS: ["h1", "p", "span", "b"],
     });
 
     const movieID = props.movie.id;
 
+    // Sets the favorite status of a show, if the result is present in the favorites updates the star to display in a gold color
     useEffect(() => {
         const checkIfFavorite = () => {
             if (props.checkIfFav(props.movie.id)) {
@@ -50,6 +53,7 @@ function MovieItem(props) {
             <div className="Movie-Desc">
                 <div className={`description-text ${showMore ? "show-more" : ""}`} dangerouslySetInnerHTML={{ __html: safeHTML }} ></div>
                 {
+                    // Could be improved by setting the number based on the words on screen
                     safeHTML.length > 200 ?
                         <button className="btn btn--show-more" onClick={() => setShowMore(!showMore)}>
                             {showMore ? "Show less" : "Show more"}

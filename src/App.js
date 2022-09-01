@@ -9,6 +9,8 @@ function App() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
 
+  // Favorites functionality to be moved into a Context API
+  // Toggles a favorite on a movie or show
   function toggleFavorite(movieID) {
     let favorites = JSON.parse(localStorage.getItem('favorites'));
     if (!favorites) {
@@ -22,6 +24,7 @@ function App() {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
+  // Checks if the item is already using the favorite
   function checkIfFav(movieID) {
     let favorites = JSON.parse(localStorage.getItem('favorites'));
     if (favorites && favorites.indexOf(movieID) > -1) {
@@ -32,9 +35,11 @@ function App() {
   }
 
   useEffect(() => {
-    const url = `https://api.tvmaze.com/search/shows?q=${query}&key=${process.env.REACT_APP_TMDB_KEY}`
-    // const url = `https://api.themoviedb.org/3/search/company?api_key=10aece0f7ac21cea368256df65318351&query=${query}&page=1`;
+    // Could also use an API key from the .env file, not needed since we use tvmaze which doesn't require a key
+    const url = `https://api.tvmaze.com/search/shows?q=${query}`
+    // const url = `https://api.themoviedb.org/3/search/company?api_key=${process.env.REACT_APP_TMDB_KEY}&query=${query}&page=1`;
 
+    // Gets the results and stores them in the state, sends them to the Main component via props
     const fetchData = async () => {
       if (query !== '') {
         try {
@@ -55,7 +60,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Main updateSearch={setQuery} results={results} toggleFavorite={toggleFavorite} checkIfFav={checkIfFav} />} />
-        <Route path="favorites" element={<Favorites />} />
+        <Route path="favorites" element={<Favorites toggleFavorite={toggleFavorite} checkIfFav={checkIfFav} />} />
       </Routes>
     </div>
   );

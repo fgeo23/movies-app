@@ -24,6 +24,7 @@
     &-Trigger {
         border: none;
         background-color: vars.$color-white;
+        padding: 1rem;
         width: 50px;
     }
 
@@ -34,6 +35,7 @@
         flex-direction: row;
         height: 100%;
         width: 0;
+        overflow: hidden;
         transition: width 0.5s;
 
         &.show {
