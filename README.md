@@ -6,6 +6,9 @@ Demo available here: https://filimongeorge.github.io/movies-app/
 Note: Click on Home when accessing the website to load the application. For some reason, routing breaks when using github pages.
 Will fix this in a later deployment.
 
+Node version : 16.14.2
+Npm version: 8.5.0
+
 ## Available Scripts
 
 In the project directory, you can run:
