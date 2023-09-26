@@ -6,7 +6,7 @@ function MovieList(props) {
         <div className="Movie-List">
             {
                 props.results.map((result, index) => {
-                    return <MovieItem key={index} movie={result.show} checkIfFav={props.checkIfFav} toggleFavorite={props.toggleFavorite}/>;
+                    return <MovieItem key={result.id + `${index}`} movie={result.show} checkIfFav={props.checkIfFav} toggleFavorite={props.toggleFavorite}/>;
                 })
             }
         </div>

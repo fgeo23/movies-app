@@ -1,4 +1,5 @@
 import MovieList from '../Movie-List/MovieList';
+import RecentlyViewed from '../RecentlyViewed/RecentlyViewed';
 import './Main.scss';
 import { useEffect, useState } from 'react';
 import DatePicker from "react-datepicker";
@@ -132,6 +133,7 @@ function Main(props) {
                     }
                     />
             }
+            <RecentlyViewed />
         </div>
     );
 }

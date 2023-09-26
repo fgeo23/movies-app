@@ -1,0 +1,25 @@
+@use '../../styles/variables' as vars;
+
+.Recently-Viewed {
+    display: flex;
+    flex-direction: row;
+
+    &--Item {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        &--Button {
+            bottom: 0;
+            background-color: rgba($color: #000000, $alpha: 0.5);
+            color: vars.$color-white;
+            cursor: pointer;
+            border: none;
+            height: 1.5rem;
+            left: 0;
+            position: absolute;
+            right: 0;
+            width: 100%;
+        }
+    }
+}

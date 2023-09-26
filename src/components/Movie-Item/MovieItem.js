@@ -1,14 +1,17 @@
 import './MovieItem.scss';
 import DOMPurify from "dompurify";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { useRecentlyViewed } from '../../RecentlyViewedContext';
 
 // Renders the data for a show
 function MovieItem(props) {
     const [showMore, setShowMore] = useState(false);
     const [isFavorite, setFavorite] = useState(false);
+    const { addRecentlyViewed } = useRecentlyViewed();
+    const movieItemRef = useRef();
 
     // Sanitizing the HTML to prevent XSS
     const safeHTML = DOMPurify.sanitize(props.movie.summary, {
@@ -29,9 +32,43 @@ function MovieItem(props) {
 
         checkIfFavorite();
     }, [props, movieID]);
+  
+    // Add the current movie to recently viewed when it's rendered
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // Add the current movie to recently viewed when it's in view
+                addRecentlyViewed(props.movie);
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            root: null, // viewport
+            rootMargin: '0px', // no margin
+            threshold: 0.5, // 50% of the element must be visible
+          }
+        );
+    
+        if (movieItemRef.current) {
+          observer.observe(movieItemRef.current);
+        }
+
+        const movieItemRefUnmountable = movieItemRef.current;
+    
+        // Cleanup the observer when the component unmounts
+        return () => {
+          if (movieItemRefUnmountable) {
+            observer.unobserve(movieItemRefUnmountable);
+          }
+        };
+      }, [addRecentlyViewed, props.movie]);
+    
 
     return (
-        <div className="Movie-Item">
+        <div className="Movie-Item" ref={movieItemRef}>
             <div className="Movie-Title">
                 <h5>{props.movie.name}</h5>
                 <div className="add-to-fav" onClick={() => {
