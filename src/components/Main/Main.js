@@ -17,7 +17,7 @@ function Main(props) {
     const [genres, setGenres] = useState([]);
     const [selectedGenre, selectGenre] = useState('');
     const [selectedSortMethod, selectSort] = useState('');
-    const [startDate, setStartDate] = useState(new Date('01-01-2000'));
+    const [startDate, setStartDate] = useState(new Date('2000-01-01'));
     const [endDate, setEndDate] = useState(new Date());
 
     useEffect(() => {
@@ -65,34 +65,34 @@ function Main(props) {
                 <input type="text" name="search" className="Main-Search" />
                 <div className="Main-Controls">
                     <input type="submit" value="Search" className="btn Main-Submit" />
-                    <button onClick={toggleFilters} className="btn Main-Filters-Button">Filter</button>
-                    {showFilters ?
-                        // Render the genres and if the genre is selected display it different from the others using the .selected class
-                        <div className="Main-Filters">
-                            <h4>Genre</h4>
-                            <div className="Main-Filters-Genres">
-                                <div className={`control ${selectedGenre === '' ? 'selected' : ''}`} key='all' onClick={() => filterGenre('')}>All</div>
-                                {genres.map((genre, ndx) => {
-                                    return <div className={`control ${selectedGenre === genre ? 'selected' : ''}`} key={ndx} onClick={() => filterGenre(genre)}>{genre}</div>
-                                })}
-                            </div>
-                            <h4>Release Date</h4>
-                            <div className="Main-Filters-DatePickers">
-                                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} title="Start Date" />
-                                until
-                                <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} title="End Date" />
-                            </div>
-                        </div> : ''}
-                    <button onClick={toggleSorting} className="btn Main-Sorting-Button">Sort</button>
-                    {showSorting ?
-                        // Choose the sorting method and display the selected method different from the others
-                        <div className="Main-Sorting">
-                            <div className={`control ${selectedSortMethod === '' ? 'selected' : ''}`} onClick={() => selectSortMethod('')}>Unsorted</div>
-                            <div className={`control ${selectedSortMethod === 'name' ? 'selected' : ''}`} onClick={() => selectSortMethod('name')}>Name</div>
-                            <div className={`control ${selectedSortMethod === 'year' ? 'selected' : ''}`} onClick={() => selectSortMethod('year')}>Year of release</div>
-                        </div>
-                        : ''}
+                    <button onClick={toggleFilters} className={"btn Main-Filters-Button " + (showFilters ? 'selected' : '')}>Filter</button>
+                    <button onClick={toggleSorting} className={"btn Main-Sorting-Button " + (showSorting ? 'selected' : '')}>Sort</button>
                 </div>
+                {showFilters ?
+                    // Render the genres and if the genre is selected display it different from the others using the .selected class
+                    <div className="Main-Filters">
+                        <h4>Genre</h4>
+                        <div className="Main-Filters-Genres">
+                            <div className={`control ${selectedGenre === '' ? 'selected' : ''}`} key='all' onClick={() => filterGenre('')}>All</div>
+                            {genres.map((genre, ndx) => {
+                                return <div className={`control ${selectedGenre === genre ? 'selected' : ''}`} key={ndx} onClick={() => filterGenre(genre)}>{genre}</div>
+                            })}
+                        </div>
+                        <h4>Release Date</h4>
+                        <div className="Main-Filters-DatePickers">
+                            <DatePicker dateFormat="dd-MM-yyyy" selected={startDate} onChange={(date) => setStartDate(date)} title="Start Date" />
+                            until
+                            <DatePicker dateFormat="dd-MM-yyyy" selected={endDate} onChange={(date) => setEndDate(date)} title="End Date" />
+                        </div>
+                    </div> : ''}
+                {showSorting ?
+                    // Choose the sorting method and display the selected method different from the others
+                    <div className="Main-Sorting">
+                        <div className={`control ${selectedSortMethod === '' ? 'selected' : ''}`} onClick={() => selectSortMethod('')}>Unsorted</div>
+                        <div className={`control ${selectedSortMethod === 'name' ? 'selected' : ''}`} onClick={() => selectSortMethod('name')}>Name</div>
+                        <div className={`control ${selectedSortMethod === 'year' ? 'selected' : ''}`} onClick={() => selectSortMethod('year')}>Year of release</div>
+                    </div>
+                : ''}
             </form>
             {
                 props.results.length === 0 && selectedGenre === '' ?

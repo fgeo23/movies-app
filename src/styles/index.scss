@@ -18,7 +18,7 @@ code {
   background-color: vars.$color-blue;
   color: vars.$color-white;
   border: 2px solid vars.$color-blue;
-  border-radius: 30px;
+  border-radius: vars.$border-radix;
   cursor: pointer;
   padding: 0.5rem 1rem;
   transition: background-color 0.3s ease-out;
