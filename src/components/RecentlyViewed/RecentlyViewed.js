@@ -12,9 +12,11 @@ function RecentlyViewed() {
       <div className='Recently-Viewed'>
         {recentlyViewed.map((movie) => (
           <div key={movie.id} className='Recently-Viewed--Item'>
-            {movie.name}
-            <img src={movie.image.medium} alt="" />
-            <button className="Recently-Viewed--Item--Button" onClick={() => removeRecentlyViewed(movie.id)}>✕</button>
+            <div className='Recently-Viewed--Item--Title'>{movie.name}</div>
+            <div className='Recently-Viewed--Item--Image'>
+              <img src={movie.image.medium} alt="" />
+              <button className="Recently-Viewed--Item--Button" onClick={() => removeRecentlyViewed(movie.id)}>✕</button>
+            </div>
           </div>
         ))}
       </div>
