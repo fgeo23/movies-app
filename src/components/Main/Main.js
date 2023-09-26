@@ -133,7 +133,7 @@ function Main(props) {
                     }
                     />
             }
-            <RecentlyViewed />
+            <RecentlyViewed updateSearch={props.updateSearch} />
         </div>
     );
 }

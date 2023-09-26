@@ -3,7 +3,7 @@ import { useRecentlyViewed } from '../../RecentlyViewedContext';
 
 import './RecentlyViewed.scss';
 
-function RecentlyViewed() {
+function RecentlyViewed(props) {
   const { recentlyViewed, removeRecentlyViewed } = useRecentlyViewed();
 
   return (
@@ -12,7 +12,7 @@ function RecentlyViewed() {
       <div className='Recently-Viewed'>
         {recentlyViewed.map((movie) => (
           <div key={movie.id} className='Recently-Viewed--Item'>
-            <div className='Recently-Viewed--Item--Title'>{movie.name}</div>
+            <div className='Recently-Viewed--Item--Title' onClick={() => props.updateSearch(movie.name)}>{movie.name}</div>
             <div className='Recently-Viewed--Item--Image'>
               <img src={movie.image.medium} alt="" />
               <button className="Recently-Viewed--Item--Button" onClick={() => removeRecentlyViewed(movie.id)}>✕</button>
