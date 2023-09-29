@@ -1,77 +1,61 @@
-# Getting Started with Create React App
+Movies App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Movies App is a web application developed as part of a Dev Challenge, allowing users to search, filter, and sort through a list of movies and TV shows. It provides an intuitive user interface to interact with the movie data, offering functionalities like filtering by genre and release date, and sorting by name or year of release.
+Table of Contents
 
-Demo available here: https://filimongeorge.github.io/movies-app/
-Note: Click on Home when accessing the website to load the application. For some reason, routing breaks when using github pages.
-Will fix this in a later deployment.
+    Features
+    Technology Stack
+    Setup
+    Usage
+    Contribution
 
-Node version : 16.14.2
-Npm version: 8.5.0
+Features
 
-## Available Scripts
+    Search Functionality: Allows users to search for a movie or TV show.
+    Filtering: Users can filter the results by genre and release date.
+    Sorting: Offers sorting options by name or year of release.
+    Recently Viewed: Displays a list of recently viewed movies or TV shows.
+    Responsive Design: Ensures optimal viewing experience on various devices.
 
-In the project directory, you can run:
+Technology Stack
 
-### `npm start`
+    React
+    SCSS
+    react-datepicker
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Setup
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Provide instructions on how to set up the project locally, including any prerequisites, installation steps, and environment configuration.
 
-### `npm test`
+sh
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Clone the repository
+git clone https://github.com/filimongeorge/movies-app.git
 
-### `npm run build`
+# Navigate to the project directory
+cd movies-app
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Install dependencies
+npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Start the development server
+npm start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Usage
 
-### `npm run eject`
+Detail the usage of the application, including any available routes, user interactions, and UI elements.
+Main Component
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The Main component is central to the application, handling search, filtering, and sorting functionalities for the results. It renders the Movie list based on the returned results and offers controls for user interactions.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    Search: Users can search for a movie or TV show using the search bar.
+    Filtering: Users can filter results by selecting a genre and specifying a release date range.
+    Sorting: Users can sort the results by name or year of release.
+    Recently Viewed: This section displays the movies or TV shows that the user has recently viewed.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Contribution
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Provide guidelines for contributors, including coding standards, branch naming conventions, and the process for submitting pull requests.
+Final Thoughts
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This README draft provides a structured overview of the Movies App project, detailing its features, technology stack, setup instructions, usage, and contribution guidelines. It can be further refined and expanded with more specific details, screenshots, and any additional information relevant to the project.
