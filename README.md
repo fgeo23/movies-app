@@ -27,8 +27,7 @@ Setup
 
 Provide instructions on how to set up the project locally, including any prerequisites, installation steps, and environment configuration.
 
-sh
-
+~~~sh
 # Clone the repository
 git clone https://github.com/filimongeorge/movies-app.git
 
@@ -40,6 +39,7 @@ npm install
 
 # Start the development server
 npm start
+~~~
 
 Usage
 
